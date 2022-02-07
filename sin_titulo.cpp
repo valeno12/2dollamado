@@ -134,13 +134,17 @@ int busqueda(string dni, string cod)
 string buscar_catedra(string code)
 {
 	string y;
-	for (int j=0; j<cont; j++)
+    bool estaEncontrado = false;
+    int j = 0;
+	while (j < cont && !estaEncontrado)
 	{
 		if (code == catedras[j][0])
 		{
 			y=catedras[j][2];
 			j=cont;
+            estaEncontrado = true;
 		}
+        j++;
 	}
 	return y;
 }
