@@ -80,11 +80,16 @@ void archivos()
 	}
 	else 
 	{
+        int nField = 1;
 		while (!archivo1.eof())
 		{
-			getline(archivo1, catedras[i][0]);
-			getline(archivo1, catedras[i][1]);
-			getline(archivo1, catedras[i][2]);
+            string linea;
+            getline(archivo1, linea);
+            if (!linea.empty()) {
+                catedras[i][nField-1] = linea;
+            }
+            nField++;
+            if (nField % 3 == 0) nField = 0;
 			i++;
 			cont++;
 		}
@@ -124,7 +129,6 @@ int busqueda(string dni, string cod)
 		if (dni == docentes[i].dni && cod == docentes[i].code)
 		{
 			pos = i;
-			i=cont2; // no entiendo esto.
             estaEncontrado = true;
 		};
         i++;
@@ -141,7 +145,6 @@ string buscar_catedra(string code)
 		if (code == catedras[j][0])
 		{
 			y=catedras[j][2];
-			j=cont;
             estaEncontrado = true;
 		}
         j++;
