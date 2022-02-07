@@ -86,7 +86,12 @@ void archivos()
             string linea;
             getline(archivo1, linea);
             if (!linea.empty()) {
-                catedras[i][nField-1] = linea;
+                if (nField == 0) {
+                    catedras[i][0] = linea;
+                } else {
+                    catedras[i][nField-1] = linea;
+                }
+
             }
             nField++;
             if (nField % 3 == 0) nField = 0;
