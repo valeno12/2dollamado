@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
 	}
 	else
 	{
-		archivo3 << "Nombre ded catedra" << "                      " << "Libres" << "   " << "No libres" << endl;
+		archivo3 << "Nombre de catedra" << "                      " << "Libres" << "   " << "No libres" << endl;
 		for (int i=0; i<cont_a; i++)
 		{
 			auxa = alumnos[i].prom + alumnos[i].regulares;
@@ -86,13 +86,15 @@ void archivos()
             string linea;
             getline(archivo1, linea);
             if (!linea.empty()) {
-                    catedras[i][nField-1] = linea;
+                catedras[i][nField-1] = linea;
             }
 
-            if (nField % 3 == 0) nField = 0;
+            if (nField % 3 == 0) {
+                nField = 0;
+                i++;
+                cont++;
+            }
             nField++;
-			i++;
-			cont++;
 		}
 	}
 	archivo1.close();
@@ -154,15 +156,16 @@ string buscar_catedra(string code)
 }
 void libres()
 {
-	string y= "2", x;
+	string y, x;
 	cout << "NOMBRE CATEDRA" << "            " << "AÑO CURSADA" << endl;
 	for (int i=0; i<cont; i++)
 	{
-		//y = catedras[i][0].substr(3, 1);
+		y = catedras[i][0].substr(3, 1);
 		x = catedras[i][0].substr(6, 1);
+        string nombreDpto = catedras[0][2];
 		if (x == "S")
 		{
-			cout << catedras[i][2] << "      " << y << endl;
+			cout << nombreDpto << "     " << y << endl;
 		}
 	}
 }
