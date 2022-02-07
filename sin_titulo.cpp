@@ -88,8 +88,9 @@ void archivos()
             if (!linea.empty()) {
                     catedras[i][nField-1] = linea;
             }
-            nField++;
+
             if (nField % 3 == 0) nField = 0;
+            nField++;
 			i++;
 			cont++;
 		}
