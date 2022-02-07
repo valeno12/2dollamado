@@ -116,14 +116,18 @@ void archivos()
 
 int busqueda(string dni, string cod)
 {
+    bool estaEncontrado = false;
 	int pos=0;
-	for (int i=0; i<cont2; i++)
+    int i = 0;
+	while (i<cont2 && !estaEncontrado)
 	{
 		if (dni == docentes[i].dni && cod == docentes[i].code)
 		{
 			pos = i;
-			i=cont2;
+			i=cont2; // no entiendo esto.
+            estaEncontrado = true;
 		};
+        i++;
 	}
 	return pos;
 }
